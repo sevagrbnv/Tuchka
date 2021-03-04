@@ -3,6 +3,7 @@
     <string name="place_not_found">Место не найдено</string>
     <string name="other_days_not_found">Прогноз на неделю не найден</string>
     <string name="no_internet_connection">Проверьте подключение к сети</string>
+    <string name="city_not_found">Город не найден</string>
     <string name="cloudy">R.drawable.cloudy.png</string>
     <string name="moon">R.drawable.moon.png</string>
     <string name="rain">R.drawable.rain.png</string>
@@ -11,4 +12,19 @@
     <string name="snow">R.drawable.snow_weather_icon_152001.png</string>
     <string name="foggy">R.drawable.foggy.png</string>
 
+
+    <string-array name="city_names">
+        <item>Москва</item>
+        <item>Санкт-Петербург</item>
+        <item>Берлин</item>
+        <item>Лондон</item>
+        <item>Париж</item>
+        <item>Прага</item>
+        <item>Вена</item>
+        <item>Токио</item>
+        <item>Каир</item>
+        <item>Монреаль</item>
+        <item>Брюсель</item>
+        <item>Минск</item>
+    </string-array>
 </resources>

@@ -1,17 +1,21 @@
 package com.example.tuchka;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.widget.ImageButton;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.tuchka.databinding.ActivityMainBinding;
 
 import org.json.JSONObject;
 
@@ -22,34 +26,36 @@ import java.util.Date;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
+    private ActivityMainBinding binding;
 
     private Handler handler;
-
-    private ImageButton add_city, showLoc, listOfCities;
-    private TextView cityName;
-
-    private ImageView weatherIcon;
-    private TextView temperature, weatherCharacter;
-
-    private TextView dateToday, temp, bar, hum, wind;
-
-    private TextView[] dates;
-    private ImageView[] dateIcons;
-    private TextView[] dateChars;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         handler = new Handler();
-        setId();
 
         if (!isOnline(MainActivity.this))
             Toast.makeText(this, MainActivity.this.getString(R.string.no_internet_connection), Toast.LENGTH_LONG).show();
 
-        updateWeatherData("Москва");
+        String cityName = new String();
 
+        try {
+            Bundle city = getIntent().getExtras();
+            if (!city.isEmpty()) {
+                cityName = city.getString("city");
+                updateWeatherData(cityName);
+            }
+
+        } catch (Exception e){
+            if (cityName.isEmpty())
+                updateWeatherData("Москва");
+            else {
+                Toast.makeText(this, MainActivity.this.getString(R.string.city_not_found), Toast.LENGTH_LONG).show();
+                Log.e("Weather", "City not found");
+            }
+        }
     }
 
     public static boolean isOnline(Context context)
@@ -62,48 +68,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return false;
-    }
-
-    private void setId(){
-        add_city = findViewById(R.id.add_btn);
-        showLoc = findViewById(R.id.map_btn);
-        listOfCities = findViewById(R.id.list_of_sities);
-        cityName = findViewById(R.id.city_name);
-
-        weatherIcon = findViewById(R.id.weather_img);
-        temperature = findViewById(R.id.temperature);
-        weatherCharacter = findViewById(R.id.character);
-
-        dateToday = findViewById(R.id.date_today);
-        temp = findViewById(R.id.temp_data);
-        bar = findViewById(R.id.press_data);
-        hum = findViewById(R.id.hum_data);
-        wind = findViewById(R.id.wind_data);
-
-        dates = new TextView[6];
-        dateIcons = new ImageView[6];
-        dateChars = new TextView[6];
-
-        dates[0] = findViewById(R.id.d0t);
-        dates[1] = findViewById(R.id.d1t);
-        dates[2] = findViewById(R.id.d2t);
-        dates[3] = findViewById(R.id.d3t);
-        dates[4] = findViewById(R.id.d4t);
-        dates[5] = findViewById(R.id.d5t);
-
-        dateIcons[0] = findViewById(R.id.w0t);
-        dateIcons[1] = findViewById(R.id.w1t);
-        dateIcons[2] = findViewById(R.id.w2t);
-        dateIcons[3] = findViewById(R.id.w3t);
-        dateIcons[4] = findViewById(R.id.w4t);
-        dateIcons[5] = findViewById(R.id.w5t);
-
-        dateChars[0] = findViewById(R.id.t0t);
-        dateChars[1] = findViewById(R.id.t1t);
-        dateChars[2] = findViewById(R.id.t2t);
-        dateChars[3] = findViewById(R.id.t3t);
-        dateChars[4] = findViewById(R.id.t4t);
-        dateChars[5] = findViewById(R.id.t5t);
     }
 
     //Отправка первого Json-запроса
@@ -132,21 +96,21 @@ public class MainActivity extends AppCompatActivity {
     //Заполнение погоды по сегодняшнему дню
     private void renderWeather(JSONObject json){
         try {
-            cityName.setText(json.getString("name"));//название города
+            binding.cityName.setText(json.getString("name"));//название города
 
             JSONObject details = json.getJSONArray("weather").getJSONObject(0);
             JSONObject main = json.getJSONObject("main");
             JSONObject  windData= json.getJSONObject("wind");
-            weatherCharacter.setText(details.getString("description").replace(" ", "\n"));
-            temperature.setText(main.getInt("temp") + "°");
-            hum.setText(main.getString("humidity") + "%");
+            binding.character.setText(details.getString("description").replace(" ", "\n"));
+            binding.temperature.setText(main.getInt("temp") + "°");
+            binding.humData.setText(main.getString("humidity") + "%");
             double barData = (main.getInt("pressure") * 100 / 133);
-            bar.setText((barData + "мм"));
-            temp.setText(main.getInt("temp") + "°");
-            dateToday.setText(setDateToday());
+            binding.pressData.setText((barData + "мм"));
+            binding.tempData.setText(main.getInt("temp") + "°");
+            binding.dateToday.setText(setDateToday());
             renderWind(windData);//заполение данных по ветру
 
-            setWeatherIcon(weatherIcon, details.getInt("id"), json.getJSONObject("sys").getLong("sunrise") * 1000,
+            setWeatherIcon(binding.weatherImg, details.getInt("id"), json.getJSONObject("sys").getLong("sunrise") * 1000,
                     json.getJSONObject("sys").getLong("sunset") * 1000);//установка подходящей иконки в соответствии с временем суток
 
             JSONObject coords = json.getJSONObject("coord");
@@ -170,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
             else if (windData.getInt("deg") > 90 && windData.getInt("deg") < 180) windDir = "ЮВ, ";
             else if (windData.getInt("deg") > 180 && windData.getInt("deg") < 270) windDir = "ЮЗ, ";
             else windDir = "СЗ, ";
-            wind.setText(windDir + windData.getString("speed") + " м/с");
+            binding.windData.setText(windDir + windData.getString("speed") + " м/с");
         } catch (Exception e){
             Log.e("Weather", "WindRenderError");
         }
@@ -215,9 +179,9 @@ public class MainActivity extends AppCompatActivity {
         if (actualId == 800) {
             long currentTime = new Date().getTime();
             if (currentTime >= sunrise && currentTime < sunset) {
-                weatherIcon.setImageDrawable(getResources().getDrawable(R.drawable.sunny));
+                image.setImageDrawable(getResources().getDrawable(R.drawable.sunny));
             } else {
-                weatherIcon.setImageDrawable(getResources().getDrawable(R.drawable.moon));
+                image.setImageDrawable(getResources().getDrawable(R.drawable.moon));
             }
         } else {
             Log.d("icon", "id " + id);
@@ -247,16 +211,16 @@ public class MainActivity extends AppCompatActivity {
     private void setWeatherIcon(ImageView image, int actualId){
         int id = actualId / 100;
         if (actualId == 800) {
-            weatherIcon.setImageDrawable(getResources().getDrawable(R.drawable.sunny));
+            image.setImageDrawable(getResources().getDrawable(R.drawable.sunny));
         } else {
-            Log.d("icon", "id_suka" + id);
+            Log.d("icon", "id" + id);
             switch (id) {
 
                 case 0:
-                    weatherIcon.setImageDrawable(getResources().getDrawable(R.drawable.sunny));
+                    image.setImageDrawable(getResources().getDrawable(R.drawable.sunny));
                     break;
                 case 1:
-                    weatherIcon.setImageDrawable(getResources().getDrawable(R.drawable.sunny));
+                    image.setImageDrawable(getResources().getDrawable(R.drawable.sunny));
                     break;
                 case 2:
                     image.setImageDrawable(getResources().getDrawable(R.drawable.thunder));
@@ -279,7 +243,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
     private void renderOtherDays(JSONObject json){
         //заполнение датами ScrollView
         Date currentDate = new Date();
@@ -292,22 +255,59 @@ public class MainActivity extends AppCompatActivity {
         }catch (Exception e){
             Log.e("Weather", "ParseDateError");
         }
+
+        TextView[] dates = new TextView[6];
+        dates[0] = binding.d0t;
+        dates[1] = binding.d1t;
+        dates[2] = binding.d2t;
+        dates[3] = binding.d3t;
+        dates[4] = binding.d4t;
+        dates[5] = binding.d5t;
+
         for (int i = 0; i < 6; i++){
             c.add(Calendar.DATE, 1);
             dt = sdf.format(c.getTime());
             dates[i].setText(dt);
         }
+
+        ImageView[] images = new ImageView[6];
+        images[0] = binding.w0t;
+        images[1] = binding.w1t;
+        images[2] = binding.w2t;
+        images[3] = binding.w3t;
+        images[4] = binding.w4t;
+        images[5] = binding.w5t;
+
+        TextView[] temps = new TextView[6];
+        temps[0] = binding.t0t;
+        temps[1] = binding.t1t;
+        temps[2] = binding.t2t;
+        temps[3] = binding.t3t;
+        temps[4] = binding.t4t;
+        temps[5] = binding.t5t;
+
 //заполнение ScrollView данными о погоде
         try {
             for (int i = 0; i < 6; i++) {
                 JSONObject daily = json.getJSONArray("daily").getJSONObject(i);
                 int tempInThatDay = daily.getJSONObject("temp").getInt("day");
-                dateChars[i].setText(tempInThatDay + "");
+                temps[i].setText(tempInThatDay + "");
                 int icon = daily.getJSONArray("weather").getJSONObject(0).getInt("id");
-                setWeatherIcon(dateIcons[i], icon);
+                setWeatherIcon(images[i], icon);
             }
         } catch (Exception e){
             Log.e("Weather", "ParseOtherDaysError");
         }
     }
+
+    public void onClickSearch(View view) {
+        Intent intent = new Intent(MainActivity.this, SearchCity.class);
+        startActivity(intent);
+    }
+
+    public void onClickMyList(View view) {
+        Intent intent = new Intent(MainActivity.this, MyList.class);
+        startActivity(intent);
+    }
+
 }
