@@ -27,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setList(){
         ArrayList<String> list = new ArrayList<>();
-        list.addAll(sPrefs.getStringSet(LIST, null));
+        list.addAll(sPrefs.getStringSet(LIST, new HashSet<String>()));
         if (!list.isEmpty())
             CityList.getCityList().addAll(list);
     }

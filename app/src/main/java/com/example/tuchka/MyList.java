@@ -47,8 +47,12 @@ public class MyList extends AppCompatActivity {
     public void initData(){
         itemList = new ArrayList<>();
         for (String city : CityList.getCityList()){
-            Item item = new Item(city);
-            itemList.add(item);
+            if (city != null) {
+                Item item = new Item(city);
+                itemList.add(item);
+            } else {
+                CityList.getCityList().remove(city);
+            }
         }
     }
 
