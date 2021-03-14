@@ -3,522 +3,525 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingDefaultResource">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="fill_horizontal"
-    android:background="@drawable/background"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/city_name"
-        android:layout_width="286dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
-        android:fontFamily="@font/philosofer"
-        android:gravity="fill_horizontal"
-        android:text="Москва"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toStartOf="@+id/list_of_sities"
-        app:layout_constraintStart_toEndOf="@+id/add_btn"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/map_btn"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="24dp"
-        android:background="@android:color/transparent"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list_of_sities"
-        app:srcCompat="@drawable/map" />
-
-    <ImageButton
-        android:id="@+id/add_btn"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="36dp"
-        android:background="@android:color/transparent"
-        android:scaleType="centerCrop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search"
-        app:srcCompat="@drawable/add_city" />
-
-    <ImageButton
-        android:id="@+id/list_of_sities"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
-        android:background="@android:color/transparent"
-        android:onClick="onClickMyList"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/list_of_cities" />
-
-    <ImageView
-        android:id="@+id/weather_img"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="68dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/city_name"
-        app:srcCompat="@drawable/sunny"
-        tools:visibility="visible" />
-
-    <TextView
-        android:id="@+id/temperature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="70dp"
-        android:text='32"'
-        android:textColor="#000000"
-        android:textSize="72sp"
-        app:layout_constraintStart_toEndOf="@+id/weather_img"
-        app:layout_constraintTop_toBottomOf="@+id/city_name" />
-
-    <TextView
-        android:id="@+id/character"
-        android:layout_width="162dp"
-        android:layout_height="102dp"
-        android:layout_marginStart="10dp"
-        android:gravity="left"
-        android:text="Ясно"
-        android:textAlignment="gravity"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/weather_img"
-        app:layout_constraintTop_toBottomOf="@+id/temperature" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="369dp"
-        android:layout_height="220dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="29dp"
-        android:background="@drawable/ramka"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather_img">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill_horizontal"
+        android:background="@drawable/background"
+        tools:context=".MainActivity">
 
         <TextView
-            android:id="@+id/textView16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="15dp"
-            android:text="Прогноз"
+            android:id="@+id/city_name"
+            android:layout_width="270dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="48dp"
+            android:fontFamily="@font/philosofer"
+            android:gravity="fill_horizontal"
+            android:text="-"
+            android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="36sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintEnd_toStartOf="@+id/list_of_sities"
+            app:layout_constraintStart_toEndOf="@+id/add_btn"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/date_today"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="43dp"
-            android:text="1 марта, пн"
-            android:textColor="#000000"
-            android:textSize="24sp"
+        <ImageButton
+            android:id="@+id/map_btn"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"
+            android:onClick="onClickMap"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintTop_toBottomOf="@+id/list_of_sities"
+            app:srcCompat="@drawable/map" />
 
-        <ImageView
-            android:id="@+id/imageView11"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="54dp"
-            android:layout_marginTop="30dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView16"
-            app:srcCompat="@drawable/thermometer"
-            tools:ignore="MissingConstraints" />
-
-        <ImageView
-            android:id="@+id/imageView12"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="54dp"
-            android:layout_marginTop="36dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView11"
-            app:srcCompat="@drawable/humidity"
-            tools:ignore="MissingConstraints" />
-
-        <ImageView
-            android:id="@+id/imageView13"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="94dp"
-            android:layout_marginEnd="164dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/gauge"
-            tools:ignore="MissingConstraints" />
-
-        <ImageView
-            android:id="@+id/imageView14"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="164dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView13"
-            app:layout_constraintVertical_bias="0.166"
-            app:srcCompat="@drawable/wind"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/temp_data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="36dp"
-            android:fontFamily="@font/philosofer"
-            android:text='23"'
-            android:textColor="#000000"
-            android:textSize="24sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView11"
-            app:layout_constraintTop_toBottomOf="@+id/textView16"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/hum_data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageButton
+            android:id="@+id/add_btn"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="36dp"
-            android:fontFamily="@font/philosofer"
-            android:text="30%"
-            android:textColor="#000000"
-            android:textSize="24sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView12"
-            app:layout_constraintTop_toBottomOf="@+id/temp_data"
-            tools:ignore="MissingConstraints" />
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
+            android:onClick="onClickAddCity"
+            android:scaleType="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search"
+            app:srcCompat="@drawable/add_city" />
+
+        <ImageButton
+            android:id="@+id/list_of_sities"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"
+            android:onClick="onClickMyList"
+            android:scaleType="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/list_of_cities" />
+
+        <ImageView
+            android:id="@+id/weather_img"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="68dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/city_name"
+            app:srcCompat="@drawable/sunny"
+            tools:visibility="visible" />
 
         <TextView
-            android:id="@+id/press_data"
+            android:id="@+id/temperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
-            android:layout_marginEnd="64dp"
-            android:fontFamily="@font/philosofer"
-            android:text="770 мм"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="70dp"
+            android:text="-"
             android:textColor="#000000"
-            android:textSize="24sp"
+            android:textSize="72sp"
+            app:layout_constraintStart_toEndOf="@+id/weather_img"
+            app:layout_constraintTop_toBottomOf="@+id/city_name" />
+
+        <TextView
+            android:id="@+id/character"
+            android:layout_width="162dp"
+            android:layout_height="102dp"
+            android:layout_marginStart="10dp"
+            android:gravity="left"
+            android:text="-"
+            android:textAlignment="gravity"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/weather_img"
+            app:layout_constraintTop_toBottomOf="@+id/temperature" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="369dp"
+            android:layout_height="220dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="29dp"
+            android:background="@drawable/ramka"
+            app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weather_img">
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="16dp"
+                android:text="Прогноз"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/date_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="43dp"
+                android:text="-"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="54dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16"
+                app:srcCompat="@drawable/thermometer"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="54dp"
+                android:layout_marginTop="36dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView11"
+                app:srcCompat="@drawable/humidity"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="84dp"
+                android:layout_marginEnd="164dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/gauge"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="164dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView13"
+                app:layout_constraintVertical_bias="0.1"
+                app:srcCompat="@drawable/wind"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/temp_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/philosofer"
+                android:text="-"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView11"
+                app:layout_constraintTop_toBottomOf="@+id/textView16"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/hum_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="44dp"
+                android:fontFamily="@font/philosofer"
+                android:text="-"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView12"
+                app:layout_constraintTop_toBottomOf="@+id/temp_data"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/press_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="64dp"
+                android:fontFamily="@font/philosofer"
+                android:text="-"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.16"
+                app:layout_constraintStart_toEndOf="@+id/imageView13"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.443"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/wind_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/philosofer"
+                android:text="-"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView14"
+                app:layout_constraintTop_toBottomOf="@+id/press_data"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="415dp"
+            android:layout_height="185dp"
+            android:background="#80FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.285"
-            app:layout_constraintStart_toEndOf="@+id/imageView13"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/d0t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="-"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
+
+                    <ImageView
+                        android:id="@+id/w0t"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="20dp"
+                        android:baselineAlignBottom="false"
+                        app:srcCompat="@drawable/sunny" />
+
+                    <TextView
+                        android:id="@+id/t0t"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="-"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/d1t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="-"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
+
+                    <ImageView
+                        android:id="@+id/w1t"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="20dp"
+                        android:baselineAlignBottom="false"
+                        app:srcCompat="@drawable/sunny" />
+
+                    <TextView
+                        android:id="@+id/t1t"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="-"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/d2t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="-"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
+
+                    <ImageView
+                        android:id="@+id/w2t"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="20dp"
+                        android:baselineAlignBottom="false"
+                        app:srcCompat="@drawable/sunny" />
+
+                    <TextView
+                        android:id="@+id/t2t"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="-"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/d3t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="-"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
+
+                    <ImageView
+                        android:id="@+id/w3t"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="20dp"
+                        android:baselineAlignBottom="false"
+                        app:srcCompat="@drawable/sunny" />
+
+                    <TextView
+                        android:id="@+id/t3t"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="-"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/d4t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="-"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
+
+                    <ImageView
+                        android:id="@+id/w4t"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="20dp"
+                        android:baselineAlignBottom="false"
+                        app:srcCompat="@drawable/sunny" />
+
+                    <TextView
+                        android:id="@+id/t4t"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="-"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/d5t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="-"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
+
+                    <ImageView
+                        android:id="@+id/w5t"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="20dp"
+                        android:baselineAlignBottom="false"
+                        app:srcCompat="@drawable/sunny" />
+
+                    <TextView
+                        android:id="@+id/t5t"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="-"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <ImageButton
+            android:id="@+id/search"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
+            android:onClick="onClickSearch"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.515"
-            tools:ignore="MissingConstraints" />
+            app:srcCompat="@drawable/search"
+            android:scaleType="center"/>
 
-        <TextView
-            android:id="@+id/wind_data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="36dp"
-            android:fontFamily="@font/philosofer"
-            android:text="CЗ, 5 м/с"
-            android:textColor="#000000"
-            android:textSize="24sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView14"
-            app:layout_constraintTop_toBottomOf="@+id/press_data"
-            tools:ignore="MissingConstraints" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
-        android:layout_width="415dp"
-        android:layout_height="185dp"
-        android:background="#80FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/d0t"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="20dp"
-                    android:text="вт, 2"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:id="@+id/w0t"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginRight="20dp"
-                    android:baselineAlignBottom="false"
-                    app:srcCompat="@drawable/sunny" />
-
-                <TextView
-                    android:id="@+id/t0t"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:text='20"'
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="24sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/d1t"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="20dp"
-                    android:text="вт, 2"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:id="@+id/w1t"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="20dp"
-                    android:baselineAlignBottom="false"
-                    app:srcCompat="@drawable/sunny" />
-
-                <TextView
-                    android:id="@+id/t1t"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:text='20"'
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="24sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/d2t"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="20dp"
-                    android:text="вт, 2"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:id="@+id/w2t"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="20dp"
-                    android:baselineAlignBottom="false"
-                    app:srcCompat="@drawable/sunny" />
-
-                <TextView
-                    android:id="@+id/t2t"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:text='20"'
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="24sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/d3t"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="20dp"
-                    android:text="вт, 2"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:id="@+id/w3t"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="20dp"
-                    android:baselineAlignBottom="false"
-                    app:srcCompat="@drawable/sunny" />
-
-                <TextView
-                    android:id="@+id/t3t"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:text='20"'
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="24sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/d4t"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="20dp"
-                    android:text="вт, 2"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:id="@+id/w4t"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="20dp"
-                    android:baselineAlignBottom="false"
-                    app:srcCompat="@drawable/sunny" />
-
-                <TextView
-                    android:id="@+id/t4t"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:text='20"'
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="24sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/d5t"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="20dp"
-                    android:text="вт, 2"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:id="@+id/w5t"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="20dp"
-                    android:baselineAlignBottom="false"
-                    app:srcCompat="@drawable/sunny" />
-
-                <TextView
-                    android:id="@+id/t5t"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:text='20"'
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="24sp" />
-            </LinearLayout>
-
-        </LinearLayout>
-    </HorizontalScrollView>
-
-    <ImageButton
-        android:id="@+id/search"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/transparent"
-        android:onClick="onClickSearch"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/search" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -16,7 +16,6 @@ import java.util.List;
 
 public class SearchCity extends AppCompatActivity {
     private ActivitySearchCityBinding binding;
-    final String[] cities = {"Москва", "Петербург", "Берлин", "Париж", "Лондон"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

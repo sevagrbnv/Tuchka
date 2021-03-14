@@ -18,7 +18,7 @@ public class JsonHelper {
 *Первое API - для заполнения первого дня,
 * второе - для последующих шести
 */
-    public static JSONObject getTodayWeather(Context context, String city){
+    public static JSONObject getTodayWeather(/*Context context, */String city){
         try{
             URL url = new URL (String.format(API_FOR_TODAY, city, API_KEY));
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -41,10 +41,9 @@ public class JsonHelper {
         }
     }
 
-    public static JSONObject getOtherDays (Context context, double lat, double lon){
+    public static JSONObject getOtherDays (/*Context context,*/ double lat, double lon){
         try{
             URL url = new URL (String.format(API_FOR_WEATHER, lat + "", lon + "", API_KEY));
-            //URL url = new URL (API_FOR_WEATHER);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));

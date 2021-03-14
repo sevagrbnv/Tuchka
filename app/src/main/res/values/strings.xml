@@ -3,7 +3,8 @@
     <string name="place_not_found">Место не найдено</string>
     <string name="other_days_not_found">Прогноз на неделю не найден</string>
     <string name="no_internet_connection">Проверьте подключение к сети</string>
-    <string name="city_not_found">Город не найден</string>
+    <string name="no_map">Карты не доступны без интернета</string>
+    <string name="city_was_added">Город добавлен</string>
     <string name="cloudy">R.drawable.cloudy.png</string>
     <string name="moon">R.drawable.moon.png</string>
     <string name="rain">R.drawable.rain.png</string>
@@ -27,4 +28,5 @@
         <item>Брюсель</item>
         <item>Минск</item>
     </string-array>
+    <string name="title_activity_google_map">Map</string>
 </resources>
