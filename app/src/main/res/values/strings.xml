@@ -24,9 +24,16 @@
         <item>Вена</item>
         <item>Токио</item>
         <item>Каир</item>
-        <item>Монреаль</item>
+        <item>Мадрид</item>
         <item>Брюсель</item>
         <item>Минск</item>
+        <item>Рим</item>
+        <item>Нью-Йорк</item>
+        <item>Киев</item>
+        <item>Вашингтон</item>
+        <item>Севастополь</item>
+        <item>Люберцы</item>
+        <item>Пекин</item>
     </string-array>
     <string name="title_activity_google_map">Map</string>
 </resources>

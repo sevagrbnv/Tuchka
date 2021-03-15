@@ -5,7 +5,6 @@ import android.util.Log;
 import org.json.JSONObject;
 
 import android.os.Handler;
-import android.widget.Toast;;
 
 public class Item {
     private Handler handler = new Handler();
@@ -29,14 +28,8 @@ public class Item {
     }
 
     public Item(String name){
-        updateWeatherItem(name);
-        /*JSONObject json = updateWeatherItem(name);
         this.name = name;
-        this.temp = "gdh";
-        this.iconId = 700;
-        this.hum = "90";
-        this.press = "770";
-        this.wind = "dggj";*/
+        updateWeatherItem(name);
         this.expanded = false;
     }
 
@@ -67,7 +60,6 @@ public class Item {
             JSONObject details = json.getJSONArray("weather").getJSONObject(0);
             JSONObject main = json.getJSONObject("main");
             JSONObject  windData= json.getJSONObject("wind");
-            this.name = json.getString("name");
             this.temp = main.getInt("temp") + "";
             this.iconId = details.getInt("id");
             this.hum = main.getString("humidity");
@@ -96,14 +88,6 @@ public class Item {
         }
     }
 
-    public Handler getHandler() {
-        return handler;
-    }
-
-    public void setHandler(Handler handler) {
-        this.handler = handler;
-    }
-
     public String getName() {
         return name;
     }
@@ -116,39 +100,19 @@ public class Item {
         return temp;
     }
 
-    public void setTemp(String temp) {
-        this.temp = temp;
-    }
-
     public int getIconId() {
         return iconId;
-    }
-
-    public void setIconId(int iconId) {
-        this.iconId = iconId;
     }
 
     public String getHum() {
         return hum;
     }
 
-    public void setHum(String hum) {
-        this.hum = hum;
-    }
-
     public String getPress() {
         return press;
     }
 
-    public void setPress(String press) {
-        this.press = press;
-    }
-
     public String getWind() {
         return wind;
-    }
-
-    public void setWind(String wind) {
-        this.wind = wind;
     }
 }

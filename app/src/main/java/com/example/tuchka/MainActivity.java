@@ -51,12 +51,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+
         sPrefs = getSharedPreferences(MAIN_PREFERENCES, MODE_PRIVATE);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         handler = new Handler();
 
-        cityName = "Москва";
-
+        binding.cityName.setText(sPrefs.getString(APP_PREFERENCES_NAME, "Москва"));
+        cityName = binding.cityName.getText().toString();
 
         if (getIntent().hasExtra("city")){
             cityName = getIntent().getExtras().getString("city");
@@ -70,9 +71,7 @@ public class MainActivity extends AppCompatActivity {
         }
         setList();
         setDates();
-        Log.e("g", "fgg");
     }
-
 
     private void setList(){
         ArrayList<String> list = new ArrayList<>();
@@ -239,6 +238,7 @@ public class MainActivity extends AppCompatActivity {
         temps[4] = binding.t4t;
         temps[5] = binding.t5t;
 
+
 //заполнение ScrollView данными о погоде
         try {
             for (int i = 0; i < 6; i++) {
@@ -313,7 +313,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putString(APP_PREFERENCES_HUM, binding.humData.getText().toString());
         editor.putString(APP_PREFERENCES_PRESS, binding.pressData.getText().toString());
         editor.putString(APP_PREFERENCES_WIND, binding.windData.getText().toString());
-        Log.e("fh", binding.cityName.getText().toString());
+
         saveList();
 
         editor.apply();
@@ -326,7 +326,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setOldData(){
-        binding.cityName.setText(sPrefs.getString(APP_PREFERENCES_NAME, "Москва"));
         binding.temperature.setText(sPrefs.getString(APP_PREFERENCES_TEMP, ""));
         binding.character.setText(sPrefs.getString(APP_PREFERENCES_CHAR, ""));
         IconHelper.setWeatherIconItem(binding.weatherImg, sPrefs.getInt(String.valueOf(APP_PREFERENCES_ICON), 800));

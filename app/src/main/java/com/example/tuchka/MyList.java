@@ -2,7 +2,6 @@ package com.example.tuchka;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -60,6 +59,8 @@ public class MyList extends AppCompatActivity {
         ItemAdapter itemAdapter = new ItemAdapter(itemList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(itemAdapter);
+
+
     }
     private void setList(){
         ArrayList<String> list = new ArrayList<>();

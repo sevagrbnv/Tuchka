@@ -17,7 +17,7 @@ import net.cachapa.expandablelayout.ExpandableLayout;
 import java.util.List;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemVH> {
-    private static final String TAG = "ItemAdapter";
+    //private static final String TAG = "ItemAdapter";
 
     List<Item> itemList;
 
@@ -44,6 +44,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemVH> {
 
         boolean isExpanded = itemList.get(position).isExpanded();
         holder.expandableLayout.setVisibility(!isExpanded ? View.VISIBLE : View.GONE);
+
+
+
     }
 
     @Override
@@ -57,7 +60,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemVH> {
         TextView name, temp, hum, press, wind;
         ImageView image;
         ExpandableLayout expandableLayout;
-        LinearLayout mainLayout;
+        LinearLayout mainLayout, topLine;
         ImageView delete, goToCity;
 
         public ItemVH(@NonNull final View itemView){
@@ -73,6 +76,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemVH> {
             goToCity = itemView.findViewById(R.id.goToCity);
             mainLayout = itemView.findViewById(R.id.mainLinLayout);
             expandableLayout = itemView.findViewById(R.id.expLayout);
+            topLine = itemView.findViewById(R.id.topLine);
+            //notifyDataSetChanged();
+
+
 
             name.setOnClickListener(v -> {
                 Item item = itemList.get(getAdapterPosition());
@@ -83,11 +90,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemVH> {
             });
 
             delete.setOnClickListener(v -> {
-                itemList.remove(this);
                 mainLayout.setVisibility(View.GONE);
+                itemList.remove(this);
                 CityList.getCityList().remove(this.name.getText().toString());
-                notifyItemChanged(getAdapterPosition());
-                CityList.getCityList().remove(this);
+                notifyDataSetChanged();
+
                 MainActivity.saveList();
             });
 
